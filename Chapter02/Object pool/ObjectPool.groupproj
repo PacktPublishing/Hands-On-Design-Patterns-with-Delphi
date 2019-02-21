@@ -1,0 +1,48 @@
+﻿<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+    <PropertyGroup>
+        <ProjectGuid>{752C1299-C1B8-4E88-9418-54E78844E9B8}</ProjectGuid>
+    </PropertyGroup>
+    <ItemGroup>
+        <Projects Include="ObjectPoolPattern.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="UnitTestObjectPool.dproj">
+            <Dependencies/>
+        </Projects>
+    </ItemGroup>
+    <ProjectExtensions>
+        <Borland.Personality>Default.Personality.12</Borland.Personality>
+        <Borland.ProjectType/>
+        <BorlandProject>
+            <Default.Personality/>
+        </BorlandProject>
+    </ProjectExtensions>
+    <Target Name="ObjectPoolPattern">
+        <MSBuild Projects="ObjectPoolPattern.dproj"/>
+    </Target>
+    <Target Name="ObjectPoolPattern:Clean">
+        <MSBuild Projects="ObjectPoolPattern.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="ObjectPoolPattern:Make">
+        <MSBuild Projects="ObjectPoolPattern.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="UnitTestObjectPool">
+        <MSBuild Projects="UnitTestObjectPool.dproj"/>
+    </Target>
+    <Target Name="UnitTestObjectPool:Clean">
+        <MSBuild Projects="UnitTestObjectPool.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="UnitTestObjectPool:Make">
+        <MSBuild Projects="UnitTestObjectPool.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="Build">
+        <CallTarget Targets="ObjectPoolPattern;UnitTestObjectPool"/>
+    </Target>
+    <Target Name="Clean">
+        <CallTarget Targets="ObjectPoolPattern:Clean;UnitTestObjectPool:Clean"/>
+    </Target>
+    <Target Name="Make">
+        <CallTarget Targets="ObjectPoolPattern:Make;UnitTestObjectPool:Make"/>
+    </Target>
+    <Import Project="$(BDS)\Bin\CodeGear.Group.Targets" Condition="Exists('$(BDS)\Bin\CodeGear.Group.Targets')"/>
+</Project>

@@ -1,0 +1,19 @@
+object frBaseFrame: TfrBaseFrame
+  Size.Width = 320.000000000000000000
+  Size.Height = 240.000000000000000000
+  Size.PlatformDefault = False
+  object WebBrowser: TWebBrowser
+    Align = Client
+    Size.Width = 320.000000000000000000
+    Size.Height = 218.000000000000000000
+    Size.PlatformDefault = False
+  end
+  object inpURL: TEdit
+    Touch.InteractiveGestures = [LongTap, DoubleTap]
+    Align = Top
+    TabOrder = 1
+    Size.Width = 320.000000000000000000
+    Size.Height = 22.000000000000000000
+    Size.PlatformDefault = False
+  end
+end

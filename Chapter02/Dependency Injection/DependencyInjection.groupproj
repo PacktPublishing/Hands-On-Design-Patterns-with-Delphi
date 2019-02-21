@@ -1,0 +1,48 @@
+﻿<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+    <PropertyGroup>
+        <ProjectGuid>{393846AA-0911-442B-B629-0E271E2865F8}</ProjectGuid>
+    </PropertyGroup>
+    <ItemGroup>
+        <Projects Include="DependencyInjectionPattern.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="UnitTestDependencyInjection.dproj">
+            <Dependencies/>
+        </Projects>
+    </ItemGroup>
+    <ProjectExtensions>
+        <Borland.Personality>Default.Personality.12</Borland.Personality>
+        <Borland.ProjectType/>
+        <BorlandProject>
+            <Default.Personality/>
+        </BorlandProject>
+    </ProjectExtensions>
+    <Target Name="DependencyInjectionPattern">
+        <MSBuild Projects="DependencyInjectionPattern.dproj"/>
+    </Target>
+    <Target Name="DependencyInjectionPattern:Clean">
+        <MSBuild Projects="DependencyInjectionPattern.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="DependencyInjectionPattern:Make">
+        <MSBuild Projects="DependencyInjectionPattern.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="UnitTestDependencyInjection">
+        <MSBuild Projects="UnitTestDependencyInjection.dproj"/>
+    </Target>
+    <Target Name="UnitTestDependencyInjection:Clean">
+        <MSBuild Projects="UnitTestDependencyInjection.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="UnitTestDependencyInjection:Make">
+        <MSBuild Projects="UnitTestDependencyInjection.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="Build">
+        <CallTarget Targets="DependencyInjectionPattern;UnitTestDependencyInjection"/>
+    </Target>
+    <Target Name="Clean">
+        <CallTarget Targets="DependencyInjectionPattern:Clean;UnitTestDependencyInjection:Clean"/>
+    </Target>
+    <Target Name="Make">
+        <CallTarget Targets="DependencyInjectionPattern:Make;UnitTestDependencyInjection:Make"/>
+    </Target>
+    <Import Project="$(BDS)\Bin\CodeGear.Group.Targets" Condition="Exists('$(BDS)\Bin\CodeGear.Group.Targets')"/>
+</Project>

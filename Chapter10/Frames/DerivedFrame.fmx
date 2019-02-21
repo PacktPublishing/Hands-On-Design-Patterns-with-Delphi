@@ -1,0 +1,5 @@
+inherited frDerivedFrame: TfrDerivedFrame
+  inherited inpURL: TEdit
+    OnKeyDown = inpURLKeyDown
+  end
+end

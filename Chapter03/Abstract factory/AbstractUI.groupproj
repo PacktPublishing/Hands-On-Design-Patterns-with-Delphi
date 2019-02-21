@@ -1,0 +1,48 @@
+﻿<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+    <PropertyGroup>
+        <ProjectGuid>{403DC426-C239-4B17-8F17-0B8EE2569FE4}</ProjectGuid>
+    </PropertyGroup>
+    <ItemGroup>
+        <Projects Include="UIHostVCL.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="UIHostFMX.dproj">
+            <Dependencies/>
+        </Projects>
+    </ItemGroup>
+    <ProjectExtensions>
+        <Borland.Personality>Default.Personality.12</Borland.Personality>
+        <Borland.ProjectType/>
+        <BorlandProject>
+            <Default.Personality/>
+        </BorlandProject>
+    </ProjectExtensions>
+    <Target Name="UIHostVCL">
+        <MSBuild Projects="UIHostVCL.dproj"/>
+    </Target>
+    <Target Name="UIHostVCL:Clean">
+        <MSBuild Projects="UIHostVCL.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="UIHostVCL:Make">
+        <MSBuild Projects="UIHostVCL.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="UIHostFMX">
+        <MSBuild Projects="UIHostFMX.dproj"/>
+    </Target>
+    <Target Name="UIHostFMX:Clean">
+        <MSBuild Projects="UIHostFMX.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="UIHostFMX:Make">
+        <MSBuild Projects="UIHostFMX.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="Build">
+        <CallTarget Targets="UIHostVCL;UIHostFMX"/>
+    </Target>
+    <Target Name="Clean">
+        <CallTarget Targets="UIHostVCL:Clean;UIHostFMX:Clean"/>
+    </Target>
+    <Target Name="Make">
+        <CallTarget Targets="UIHostVCL:Make;UIHostFMX:Make"/>
+    </Target>
+    <Import Project="$(BDS)\Bin\CodeGear.Group.Targets" Condition="Exists('$(BDS)\Bin\CodeGear.Group.Targets')"/>
+</Project>

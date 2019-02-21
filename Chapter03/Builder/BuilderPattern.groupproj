@@ -1,0 +1,48 @@
+﻿<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+    <PropertyGroup>
+        <ProjectGuid>{33039582-4DA3-4945-B57D-8923616DA1EC}</ProjectGuid>
+    </PropertyGroup>
+    <ItemGroup>
+        <Projects Include="Builder.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="BuilderFluent.dproj">
+            <Dependencies/>
+        </Projects>
+    </ItemGroup>
+    <ProjectExtensions>
+        <Borland.Personality>Default.Personality.12</Borland.Personality>
+        <Borland.ProjectType/>
+        <BorlandProject>
+            <Default.Personality/>
+        </BorlandProject>
+    </ProjectExtensions>
+    <Target Name="Builder">
+        <MSBuild Projects="Builder.dproj"/>
+    </Target>
+    <Target Name="Builder:Clean">
+        <MSBuild Projects="Builder.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="Builder:Make">
+        <MSBuild Projects="Builder.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="BuilderFluent">
+        <MSBuild Projects="BuilderFluent.dproj"/>
+    </Target>
+    <Target Name="BuilderFluent:Clean">
+        <MSBuild Projects="BuilderFluent.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="BuilderFluent:Make">
+        <MSBuild Projects="BuilderFluent.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="Build">
+        <CallTarget Targets="Builder;BuilderFluent"/>
+    </Target>
+    <Target Name="Clean">
+        <CallTarget Targets="Builder:Clean;BuilderFluent:Clean"/>
+    </Target>
+    <Target Name="Make">
+        <CallTarget Targets="Builder:Make;BuilderFluent:Make"/>
+    </Target>
+    <Import Project="$(BDS)\Bin\CodeGear.Group.Targets" Condition="Exists('$(BDS)\Bin\CodeGear.Group.Targets')"/>
+</Project>
