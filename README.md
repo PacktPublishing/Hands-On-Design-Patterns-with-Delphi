@@ -1,6 +1,6 @@
 # 
 
-<a href="https://www.packtpub.com/application-development/hands-design-patterns-delphi?utm_source=github&utm_medium=repository&utm_campaign="><img src="" alt="" height="256px" align="right"></a>
+<a href="https://www.packtpub.com/application-development/hands-design-patterns-delphi?utm_source=github&utm_medium=repository&utm_campaign="><img src="https://www.packtpub.com/sites/default/files/B11287_MockupCover_0.png" alt="" height="256px" align="right"></a>
 
 This is the code repository for [](https://www.packtpub.com/application-development/hands-design-patterns-delphi?utm_source=github&utm_medium=repository&utm_campaign=), published by Packt.
 
