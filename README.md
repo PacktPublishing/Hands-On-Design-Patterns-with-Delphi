@@ -7,7 +7,7 @@ This is the code repository for [](https://www.packtpub.com/application-developm
 **Build applications using idiomatic, extensible and concurrent design patterns in Delphi**
 
 ## What is this book about?
-0
+
 
 This book covers the following exciting features:
 
